@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turkey · Tourism Cities</title>
+  <!-- Font Awesome (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: #f8f6f2;
+      color: #1e2b2f;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header */
+    header {
+      background: linear-gradient(145deg, #0f2b2e 0%, #1a3f44 100%);
+      color: #f0eee7;
+      padding: 2rem 0 1.8rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .header-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo h1 {
+      font-weight: 500;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+    .logo h1 i {
+      color: #f5c842;
+      margin-right: 10px;
+    }
+    .logo span {
+      font-weight: 300;
+      font-size: 1rem;
+      display: block;
+      color: #c3d6d0;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      font-weight: 400;
+    }
+    .nav-links a {
+      color: #e8e6dd;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+    .nav-links a:hover {
+      color: #f5c842;
+      border-bottom-color: #f5c842;
+    }
+
+    /* hero */
+    .hero {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" preserveAspectRatio="none"><path d="M0,100 C300,20 600,160 1200,80 L1200,200 L0,200 Z" fill="%23e0d6c0" opacity="0.3"/></svg>') no-repeat bottom;
+      background-size: cover;
+      padding: 2.5rem 0 3rem;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 3.2rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      color: #1a3f44;
+    }
+    .hero h2 i {
+      color: #c0392b;
+      margin: 0 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: 0.5rem auto 0;
+      color: #2d4e53;
+      background: rgba(255, 248, 235, 0.6);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+      display: inline-block;
+    }
+
+    /* city grid */
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 3rem 0 4rem;
+    }
+
+    .city-card {
+      background: #fffffffa;
+      border-radius: 28px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: all 0.25s ease;
+      overflow: hidden;
+      border: 1px solid #eae5db;
+      backdrop-filter: blur(2px);
+      display: flex;
+      flex-direction: column;
+    }
+    .city-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 28px 40px -12px rgba(0, 30, 30, 0.25);
+      border-color: #d6cdb8;
+    }
+
+    .card-img {
+      height: 170px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .card-img i {
+      position: absolute;
+      bottom: 12px;
+      right: 16px;
+      font-size: 2.2rem;
+      color: rgba(255,255,240,0.85);
+      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .card-body {
+      padding: 1.5rem 1.2rem 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-body h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: -0.5px;
+      color: #1d3c40;
+      margin-bottom: 0.3rem;
+    }
+    .card-body .region {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #8d7e64;
+      margin-bottom: 0.7rem;
+    }
+    .card-body p {
+      color: #2d464a;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+    .card-body .highlight {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 0.2rem;
+      border-top: 1px dashed #ddd6c8;
+      padding-top: 0.9rem;
+    }
+    .highlight span {
+      background: #f0ede7;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1b4045;
+    }
+    .highlight i {
+      margin-right: 6px;
+      color: #b76e3e;
+    }
+
+    /* interactive section (JS) */
+    .interactive-area {
+      background: #e8e2d6;
+      border-radius: 60px 60px 30px 30px;
+      padding: 2.5rem 2rem;
+      margin: 1rem 0 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.02), 0 12px 24px -12px rgba(0,0,0,0.2);
+    }
+
+    .interactive-area h3 {
+      font-weight: 400;
+      font-size: 1.7rem;
+      color: #1d3539;
+    }
+    .interactive-area h3 i {
+      color: #c0392b;
+      margin-right: 10px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+      cursor: pointer;
+      transition: 0.15s;
+      border: 1px solid #cdc3b2;
+      color: #1f3f43;
+      background: #fcfaf7;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn i {
+      color: #a5724b;
+    }
+    .btn:hover {
+      background: #1f3f43;
+      color: #f5efe6;
+      border-color: #1f3f43;
+      transform: scale(0.97);
+    }
+    .btn:hover i {
+      color: #f5c842;
+    }
+    .btn-fav {
+      background: #f5c842;
+      border-color: #dba52b;
+      color: #1d2f32;
+    }
+    .btn-fav i {
+      color: #1d2f32;
+    }
+    .btn-fav:hover {
+      background: #e6b83a;
+      border-color: #b8821f;
+    }
+
+    #info-message {
+      background: #1d3539;
+      color: #f0ede7;
+      padding: 0.5rem 1.8rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      min-width: 160px;
+      text-align: center;
+      box-shadow: inset 0 1px 4px rgba(255,255,220,0.1);
+    }
+
+    /* footer */
+    footer {
+      background: #0f2b2e;
+      color: #bfcec9;
+      padding: 2rem 0 1.8rem;
+      margin-top: 2rem;
+      border-radius: 40px 40px 0 0;
+    }
+    .footer-flex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-flex p i {
+      margin-right: 8px;
+      color: #f5c842;
+    }
+    .social i {
+      font-size: 1.5rem;
+      margin-left: 1.2rem;
+      color: #b7c9c2;
+      transition: 0.2s;
+      cursor: default;
+    }
+    .social i:hover {
+      color: #f5c842;
+      transform: scale(1.1);
+    }
+
+    /* responsiveness */
+    @media (max-width: 700px) {
+      .header-flex {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.8rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .hero h2 {
+        font-size: 2.4rem;
+      }
+      .interactive-area {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+        border-radius: 40px;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      #info-message {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-flex">
+    <div class="logo">
+      <h1><i class="fas fa-mosque"></i> Turkey <span> · timeless cities</span></h1>
+    </div>
+    <div class="nav-links">
+      <a href="#"><i class="fas fa-map-pin"></i> Cities</a>
+      <a href="#"><i class="fas fa-umbrella-beach"></i> Coast</a>
+      <a href="#"><i class="fas fa-utensils"></i> Cuisine</a>
+      <a href="#"><i class="fas fa-hiking"></i> Culture</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- hero -->
+  <div class="hero">
+    <h2><i class="fas fa-flag"></i> Discover <i class="fas fa-star"></i></h2>
+    <p><i class="fas fa-location-dot" style="color:#b76e3e;"></i> Istanbul · Cappadocia · Ephesus · Antalya · Pamukkale</p>
+  </div>
+
+  <!-- City cards - grid -->
+  <div class="city-grid" id="cityGrid">
+    <!-- Card 1: Istanbul -->
+    <div class="city-card">
+      <div class="card-img" style="background-image: linear-gradient(145deg, #0f2b2e60, #1a3f4460), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23b68d6b%22/><circle cx=%22180%22 cy=%2290%22 r=%2240%22 fill=%22%23d9b382%22 opacity=%220.6%22/><circle cx=%22280%22 cy=%2250%22 r=%2230%22 fill=%22%23c9a77a%22 opacity=%220.4%22/></svg>');">
+        <i class="fas fa-mosque"></i>
+      </div>
+      <div class="card-body">
+        <h3>Istanbul</h3>
+        <div class="region"><i class="fas fa-location-dot"></i> Marmara</div>
+        <p>Where East meets West · Hagia Sophia, Grand Bazaar, Bosphorus.</p>
+        <div class="highlight">
+          <span><i class="fas fa-utensils"></i> Kebap</span>
+          <span><i class="fas fa-ship"></i> Ferry</span>
+          <span><i class="fas fa-store"></i> Bazaar</span>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2: Cappadocia -->
+    <div class="city-card">
+      <div class="card-img" style="background-image: linear-gradient(145deg, #3b2f2660, #5a423560), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23b38b6d%22/><circle cx=%22120%22 cy=%22100%22 r=%2230%22 fill=%22%23d4b48a%22 opacity=%220.5%22/><circle cx=%22280%22 cy=%22140%22 r=%2250%22 fill=%22%23c4a27a%22 opacity=%220.5%22/></svg>');">
+        <i class="fas fa-hot-air-balloon"></i>
+      </div>
+      <div class="card-body">
+        <h3>Cappadocia</h3>
+        <div class="region"><i class="fas fa-location-dot"></i> Central Anatolia</div>
+        <p>Fairy chimneys, hot air balloons, underground cities.</p>
+        <div class="highlight">
+          <span><i class="fas fa-wind"></i> Balloons</span>
+          <span><i class="fas fa-cave"></i> Cave hotels</span>
+          <span><i class="fas fa-mountain"></i> Valleys</span>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3: Ephesus -->
+    <div class="city-card">
+      <div class="card-img" style="background-image: linear-gradient(145deg, #27464a60, #1d3f4460), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%238f7b62%22/><rect x=%22140%22 y=%2270%22 width=%22120%22 height=%2280%22 fill=%22%23b89f83%22 opacity=%220.5%22/></svg>');">
+        <i class="fas fa-columns"></i>
+      </div>
+      <div class="card-body">
+        <h3>Ephesus</h3>
+        <div class="region"><i class="fas fa-location-dot"></i> Aegean</div>
+        <p>Ancient Roman ruins, Library of Celsus, Great Theatre.</p>
+        <div class="highlight">
+          <span><i class="fas fa-landmark"></i> Ruins</span>
+          <span><i class="fas fa-archway"></i> Celsus</span>
+          <span><i class="fas fa-history"></i> Antique</span>
+        </div>
+      </div>
+    </div>
+    <!-- Card 4: Antalya -->
+    <div class="city-card">
+      <div class="card-img" style="background-image: linear-gradient(145deg, #1f4a3d60, #2b5f4f60), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%232c7a5e%22/><circle cx=%22320%22 cy=%2260%22 r=%2230%22 fill=%22%234f9b7d%22 opacity=%220.6%22/></svg>');">
+        <i class="fas fa-umbrella-beach"></i>
+      </div>
+      <div class="card-body">
+        <h3>Antalya</h3>
+        <div class="region"><i class="fas fa-location-dot"></i> Mediterranean</div>
+        <p>Turquoise coast, old town Kaleiçi, Düden waterfalls.</p>
+        <div class="highlight">
+          <span><i class="fas fa-water"></i> Beaches</span>
+          <span><i class="fas fa-sun"></i> Marina</span>
+          <span><i class="fas fa-tree"></i> Waterfalls</span>
+        </div>
+      </div>
+    </div>
+    <!-- Card 5: Pamukkale -->
+    <div class="city-card">
+      <div class="card-img" style="background-image: linear-gradient(145deg, #4f5a4b60, #6b7a6360), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23c4b8a0%22/><path d=%22M80,140 L200,70 L320,140 L260,180 L140,180 L80,140%22 fill=%22%23e6dcc9%22 opacity=%220.6%22/></svg>');">
+        <i class="fas fa-water"></i>
+      </div>
+      <div class="card-body">
+        <h3>Pamukkale</h3>
+        <div class="region"><i class="fas fa-location-dot"></i> Aegean</div>
+        <p>Travertine terraces, thermal pools, Hierapolis ruins.</p>
+        <div class="highlight">
+          <span><i class="fas fa-hot-tub"></i> Thermal</span>
+          <span><i class="fas fa-mountain"></i> Terraces</span>
+          <span><i class="fas fa-spa"></i> Pools</span>
+        </div>
+      </div>
+    </div>
+    <!-- Card 6: Ankara (extra) -->
+    <div class="city-card">
+      <div class="card-img" style="background-image: linear-gradient(145deg, #4d3d2e60, #68533d60), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23948165%22/><circle cx=%22200%22 cy=%22100%22 r=%2235%22 fill=%22%23b8a181%22 opacity=%220.5%22/></svg>');">
+        <i class="fas fa-monument"></i>
+      </div>
+      <div class="card-body">
+        <h3>Ankara</h3>
+        <div class="region"><i class="fas fa-location-dot"></i> Central Anatolia</div>
+        <p>Capital city · Anıtkabir, Museum of Anatolian Civilizations.</p>
+        <div class="highlight">
+          <span><i class="fas fa-crown"></i> Capital</span>
+          <span><i class="fas fa-museum"></i> Museums</span>
+          <span><i class="fas fa-city"></i> Modern</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- interactive JS section -->
+  <div class="interactive-area">
+    <h3><i class="fas fa-heart" style="color:#c0392b;"></i> Favorite city?</h3>
+    <div class="btn-group">
+      <button class="btn" id="btnIstanbul"><i class="fas fa-mosque"></i> Istanbul</button>
+      <button class="btn" id="btnCappadocia"><i class="fas fa-hot-air-balloon"></i> Cappadocia</button>
+      <button class="btn" id="btnAntalya"><i class="fas fa-umbrella-beach"></i> Antalya</button>
+      <button class="btn btn-fav" id="btnRandom"><i class="fas fa-shuffle"></i> Surprise me</button>
+    </div>
+    <div id="info-message"><i class="fas fa-info-circle"></i> Click a city ✨</div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-flex">
+    <p><i class="fas fa-flag"></i> Turkey Tourism · timeless cities</p>
+    <div class="social">
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-x-twitter"></i>
+      <i class="fab fa-youtube"></i>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    // DOM elements
+    const infoMsg = document.getElementById('info-message');
+    const btnIstanbul = document.getElementById('btnIstanbul');
+    const btnCappadocia = document.getElementById('btnCappadocia');
+    const btnAntalya = document.getElementById('btnAntalya');
+    const btnRandom = document.getElementById('btnRandom');
+
+    // city data (with emoji / icon reference)
+    const cities = [
+      { name: 'Istanbul', icon: '🕌', fact: 'Only city in the world on two continents.' },
+      { name: 'Cappadocia', icon: '🎈', fact: 'Famous for hot air balloon rides at sunrise.' },
+      { name: 'Antalya', icon: '🏖️', fact: 'Turkish Riviera with more than 300 sunny days.' },
+      { name: 'Ephesus', icon: '🏛️', fact: 'One of the best preserved ancient cities.' },
+      { name: 'Pamukkale', icon: '♨️', fact: 'Travertine terraces with thermal waters.' },
+      { name: 'Ankara', icon: '🏛️', fact: 'Home to the mausoleum of Atatürk.' }
+    ];
+
+    // helper: update message
+    function setMessage(cityName, extraFact = '') {
+      const city = cities.find(c => c.name === cityName);
+      if (city) {
+        infoMsg.innerHTML = `<i class="fas fa-location-dot" style="color:#f5c842;"></i> ${city.icon} ${city.name} · ${city.fact} ${extraFact}`;
+      } else {
+        infoMsg.innerHTML = `<i class="fas fa-info-circle"></i> ${cityName} · ${extraFact || '✨ explore Turkey!'}`;
+      }
+    }
+
+    // event listeners
+    btnIstanbul.addEventListener('click', function(e) {
+      setMessage('Istanbul');
+    });
+    btnCappadocia.addEventListener('click', function(e) {
+      setMessage('Cappadocia');
+    });
+    btnAntalya.addEventListener('click', function(e) {
+      setMessage('Antalya');
+    });
+
+    // random city
+    btnRandom.addEventListener('click', function(e) {
+      const randomIndex = Math.floor(Math.random() * cities.length);
+      const city = cities[randomIndex];
+      setMessage(city.name, '✨ surprise!');
+    });
+
+    // bonus: hover effect on cards (extra interaction)
+    const cards = document.querySelectorAll('.city-card');
+    cards.forEach((card, idx) => {
+      card.addEventListener('mouseenter', function() {
+        const title = this.querySelector('h3')?.innerText;
+        if (title) {
+          const cityData = cities.find(c => c.name === title);
+          if (cityData) {
+            // subtle preview, but we don't override message
+          }
+        }
+      });
+    });
+
+    // set default message
+    setMessage('Istanbul', '🇹🇷 click any city');
+  })();
+</script>
+</body>
+</html>
