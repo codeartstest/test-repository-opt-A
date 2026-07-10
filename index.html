@@ -303,6 +303,37 @@
       transform: scale(1.1);
     }
 
+    /* loading indicator */
+    .loading-indicator {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #1a3f44;
+    }
+    .loading-indicator i {
+      color: #1a3f44;
+      margin-bottom: 1rem;
+    }
+    .loading-indicator p {
+      font-size: 1.1rem;
+      color: #2d4e53;
+    }
+
+    /* error container */
+    .error-container {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #c0392b;
+    }
+    .error-container i {
+      margin-bottom: 1rem;
+    }
+    .error-container p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
     /* responsiveness */
     @media (max-width: 700px) {
       .header-flex {
@@ -357,101 +388,14 @@
 
   <!-- City cards - grid -->
   <div class="city-grid" id="cityGrid">
-    <!-- Card 1: Istanbul -->
-    <div class="city-card">
-      <div class="card-img" style="background-image: linear-gradient(145deg, #0f2b2e60, #1a3f4460), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23b68d6b%22/><circle cx=%22180%22 cy=%2290%22 r=%2240%22 fill=%22%23d9b382%22 opacity=%220.6%22/><circle cx=%22280%22 cy=%2250%22 r=%2230%22 fill=%22%23c9a77a%22 opacity=%220.4%22/></svg>');">
-        <i class="fas fa-mosque"></i>
-      </div>
-      <div class="card-body">
-        <h3>Istanbul</h3>
-        <div class="region"><i class="fas fa-location-dot"></i> Marmara</div>
-        <p>Where East meets West · Hagia Sophia, Grand Bazaar, Bosphorus.</p>
-        <div class="highlight">
-          <span><i class="fas fa-utensils"></i> Kebap</span>
-          <span><i class="fas fa-ship"></i> Ferry</span>
-          <span><i class="fas fa-store"></i> Bazaar</span>
-        </div>
-      </div>
+    <div id="loading" class="loading-indicator">
+      <i class="fas fa-spinner fa-spin fa-3x"></i>
+      <p>Loading cities...</p>
     </div>
-    <!-- Card 2: Cappadocia -->
-    <div class="city-card">
-      <div class="card-img" style="background-image: linear-gradient(145deg, #3b2f2660, #5a423560), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23b38b6d%22/><circle cx=%22120%22 cy=%22100%22 r=%2230%22 fill=%22%23d4b48a%22 opacity=%220.5%22/><circle cx=%22280%22 cy=%22140%22 r=%2250%22 fill=%22%23c4a27a%22 opacity=%220.5%22/></svg>');">
-        <i class="fas fa-hot-air-balloon"></i>
-      </div>
-      <div class="card-body">
-        <h3>Cappadocia</h3>
-        <div class="region"><i class="fas fa-location-dot"></i> Central Anatolia</div>
-        <p>Fairy chimneys, hot air balloons, underground cities.</p>
-        <div class="highlight">
-          <span><i class="fas fa-wind"></i> Balloons</span>
-          <span><i class="fas fa-cave"></i> Cave hotels</span>
-          <span><i class="fas fa-mountain"></i> Valleys</span>
-        </div>
-      </div>
-    </div>
-    <!-- Card 3: Ephesus -->
-    <div class="city-card">
-      <div class="card-img" style="background-image: linear-gradient(145deg, #27464a60, #1d3f4460), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%238f7b62%22/><rect x=%22140%22 y=%2270%22 width=%22120%22 height=%2280%22 fill=%22%23b89f83%22 opacity=%220.5%22/></svg>');">
-        <i class="fas fa-columns"></i>
-      </div>
-      <div class="card-body">
-        <h3>Ephesus</h3>
-        <div class="region"><i class="fas fa-location-dot"></i> Aegean</div>
-        <p>Ancient Roman ruins, Library of Celsus, Great Theatre.</p>
-        <div class="highlight">
-          <span><i class="fas fa-landmark"></i> Ruins</span>
-          <span><i class="fas fa-archway"></i> Celsus</span>
-          <span><i class="fas fa-history"></i> Antique</span>
-        </div>
-      </div>
-    </div>
-    <!-- Card 4: Antalya -->
-    <div class="city-card">
-      <div class="card-img" style="background-image: linear-gradient(145deg, #1f4a3d60, #2b5f4f60), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%232c7a5e%22/><circle cx=%22320%22 cy=%2260%22 r=%2230%22 fill=%22%234f9b7d%22 opacity=%220.6%22/></svg>');">
-        <i class="fas fa-umbrella-beach"></i>
-      </div>
-      <div class="card-body">
-        <h3>Antalya</h3>
-        <div class="region"><i class="fas fa-location-dot"></i> Mediterranean</div>
-        <p>Turquoise coast, old town Kaleiçi, Düden waterfalls.</p>
-        <div class="highlight">
-          <span><i class="fas fa-water"></i> Beaches</span>
-          <span><i class="fas fa-sun"></i> Marina</span>
-          <span><i class="fas fa-tree"></i> Waterfalls</span>
-        </div>
-      </div>
-    </div>
-    <!-- Card 5: Pamukkale -->
-    <div class="city-card">
-      <div class="card-img" style="background-image: linear-gradient(145deg, #4f5a4b60, #6b7a6360), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23c4b8a0%22/><path d=%22M80,140 L200,70 L320,140 L260,180 L140,180 L80,140%22 fill=%22%23e6dcc9%22 opacity=%220.6%22/></svg>');">
-        <i class="fas fa-water"></i>
-      </div>
-      <div class="card-body">
-        <h3>Pamukkale</h3>
-        <div class="region"><i class="fas fa-location-dot"></i> Aegean</div>
-        <p>Travertine terraces, thermal pools, Hierapolis ruins.</p>
-        <div class="highlight">
-          <span><i class="fas fa-hot-tub"></i> Thermal</span>
-          <span><i class="fas fa-mountain"></i> Terraces</span>
-          <span><i class="fas fa-spa"></i> Pools</span>
-        </div>
-      </div>
-    </div>
-    <!-- Card 6: Ankara (extra) -->
-    <div class="city-card">
-      <div class="card-img" style="background-image: linear-gradient(145deg, #4d3d2e60, #68533d60), url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 200%22><rect width=%22400%22 height=%22200%22 fill=%22%23948165%22/><circle cx=%22200%22 cy=%22100%22 r=%2235%22 fill=%22%23b8a181%22 opacity=%220.5%22/></svg>');">
-        <i class="fas fa-monument"></i>
-      </div>
-      <div class="card-body">
-        <h3>Ankara</h3>
-        <div class="region"><i class="fas fa-location-dot"></i> Central Anatolia</div>
-        <p>Capital city · Anıtkabir, Museum of Anatolian Civilizations.</p>
-        <div class="highlight">
-          <span><i class="fas fa-crown"></i> Capital</span>
-          <span><i class="fas fa-museum"></i> Museums</span>
-          <span><i class="fas fa-city"></i> Modern</span>
-        </div>
-      </div>
+    <div id="error-message" class="error-container" style="display: none;">
+      <i class="fas fa-exclamation-triangle fa-2x"></i>
+      <p>Unable to load cities. Please try again later.</p>
+      <button class="btn" id="retryBtn"><i class="fas fa-redo"></i> Retry</button>
     </div>
   </div>
 
@@ -478,6 +422,86 @@
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cityGrid = document.getElementById('cityGrid');
+    const loading = document.getElementById('loading');
+    const errorMessage = document.getElementById('error-message');
+    const retryBtn = document.getElementById('retryBtn');
+
+    function fetchCities() {
+      loading.style.display = '';
+      errorMessage.style.display = 'none';
+
+      fetch('/api/cities')
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(function(data) {
+          loading.style.display = 'none';
+          generateCityCards(data);
+        })
+        .catch(function(error) {
+          loading.style.display = 'none';
+          errorMessage.style.display = '';
+        });
+    }
+
+    function generateCityCards(cities) {
+      cityGrid.innerHTML = '';
+      cities.forEach(function(city) {
+        var card = document.createElement('div');
+        card.className = 'city-card';
+
+        var cardImg = document.createElement('div');
+        cardImg.className = 'card-img';
+        cardImg.style.background = 'linear-gradient(145deg, #0f2b2e60, #1a3f4460)';
+
+        var iconEl = document.createElement('i');
+        iconEl.className = city.icon || 'fas fa-city';
+        cardImg.appendChild(iconEl);
+
+        var cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+
+        var h3 = document.createElement('h3');
+        h3.textContent = city.name;
+        cardBody.appendChild(h3);
+
+        var region = document.createElement('div');
+        region.className = 'region';
+        region.innerHTML = '<i class="fas fa-location-dot"></i> ' + (city.region || '');
+        cardBody.appendChild(region);
+
+        var desc = document.createElement('p');
+        desc.textContent = city.description || '';
+        cardBody.appendChild(desc);
+
+        if (city.highlights && city.highlights.length > 0) {
+          var highlightDiv = document.createElement('div');
+          highlightDiv.className = 'highlight';
+          city.highlights.forEach(function(h) {
+            var span = document.createElement('span');
+            span.innerHTML = '<i class="fas fa-check"></i> ' + h;
+            highlightDiv.appendChild(span);
+          });
+          cardBody.appendChild(highlightDiv);
+        }
+
+        card.appendChild(cardImg);
+        card.appendChild(cardBody);
+        cityGrid.appendChild(card);
+      });
+    }
+
+    retryBtn.addEventListener('click', fetchCities);
+    fetchCities();
+  });
+</script>
 
 <script>
   (function() {
