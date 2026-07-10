@@ -1,0 +1,8 @@
+[
+  {"id": 1, "name": "Istanbul", "region": "Marmara", "description": "Where East meets West · Hagia Sophia, Grand Bazaar, Bosphorus.", "highlights": ["Kebap", "Ferry", "Bazaar"], "icon": "fas fa-mosque"},
+  {"id": 2, "name": "Cappadocia", "region": "Central Anatolia", "description": "Fairy chimneys, hot air balloons, underground cities.", "highlights": ["Balloons", "Cave hotels", "Valleys"], "icon": "fas fa-hot-air-balloon"},
+  {"id": 3, "name": "Ephesus", "region": "Aegean", "description": "Ancient Roman ruins, Library of Celsus, Great Theatre.", "highlights": ["Ruins", "Celsus", "Antique"], "icon": "fas fa-columns"},
+  {"id": 4, "name": "Antalya", "region": "Mediterranean", "description": "Turquoise coast, old town Kaleiçi, Düden waterfalls.", "highlights": ["Beaches", "Marina", "Waterfalls"], "icon": "fas fa-umbrella-beach"},
+  {"id": 5, "name": "Pamukkale", "region": "Aegean", "description": "Travertine terraces, thermal pools, Hierapolis ruins.", "highlights": ["Thermal", "Terraces", "Pools"], "icon": "fas fa-water"},
+  {"id": 6, "name": "Ankara", "region": "Central Anatolia", "description": "Capital city · Anıtkabir, Museum of Anatolian Civilizations.", "highlights": ["Capital", "Museums", "Modern"], "icon": "fas fa-monument"}
+]
